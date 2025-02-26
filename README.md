@@ -82,5 +82,10 @@ Splitting a commit is a useful technique when you've committed multiple changes 
 
 Steps to Split a Commit Using git reset:
 1) git log --oneline : To identify the commit to use git reset
+2)git reset --soft HEAD~1 : Just to give the last limitted to be reseted
+3)git reset when you do that it wil go under staging stage and then add and commit each 
+then do git log --online the  push 
+
+
 
 ```
