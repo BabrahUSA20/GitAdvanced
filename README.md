@@ -216,7 +216,7 @@ Uruyanges-iMac:GitAdvanced gymuruyange$ git rebase -i HEAD~3
 Successfully rebased and updated refs/heads/main.
 ```
 
-### 8.Cherry-Picking Commits:
+### 8.Cherry-Picking Commits:
 ```bash 
 Create a branch, call it ft/branch, and add a new file named test5.md with some content. Commit these changes with a message like "Implemented test 5".
 Imagine you only desire a specific commit from ft/branch. Research and use git cherry-pick to selectively bring that commit into your current branch which is main.
@@ -434,9 +434,6 @@ ab15e4b HEAD@{10}: rebase (pick): Implemented test 5
 9586864 HEAD@{14}: rebase (start): checkout origin/main
 d3889c6 HEAD@{15}: reset: moving to HEAD
 d3889c6 HEAD@{16}: checkout: moving from d3889c626d35f0a42c99cc51ee87bb436386cf11 to main
-
-
-
 
 ```
 
