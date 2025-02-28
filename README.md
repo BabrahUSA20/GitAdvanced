@@ -1,7 +1,6 @@
 # GitAdvanced
 
-# Challenges:
-## Part 1: Refining Git History (10 Challenges)
+# Challenges:  Part 1: Refining Git History (10 Challenges)
 
  ### 1. Missing File Fix:
  ```bash
@@ -19,7 +18,7 @@ Challenge: Recover from this error by staging/adding test4.md and amending the c
 
 ```
 
-## 2. Editing Commit History:
+### 2. Editing Commit History:
 ```bash
 It's crucial to maintain accurate commit messages. Modify the message from "Create another file" to "Create second file".
 Challenge: Utilize interactive rebasing (git rebase -i HEAD~2) to edit the commit message and ensure clarity. learn more about git rebase here.
@@ -49,7 +48,7 @@ pick <commit-hash> Commit message 2
 
 ```
 
-## 3. Keeping History Tidy - Squashing Commits:
+### 3. Keeping History Tidy - Squashing Commits:
  ```bash
 Squashing combines multiple commits into a single one. Let's merge "Create second file" into "Create initial file" for a cleaner history.
 Challenge: Use interactive rebasing with the squash command to achieve this. learn more about squash here
@@ -71,7 +70,7 @@ then you will see the commit message like this "Create initial file and second f
 ```
  
 
- ## 4. Splitting a Commit:
+ ### 4. Splitting a Commit:
 
 ```bash
 Imagine "Create third and fourth files" describes too much at once. Separate them for better tracking with two different commit messages: "Create Third File" and "Create fourth file".
@@ -88,8 +87,7 @@ then do git log --online the  push
 
 ```
 
- ## 5. Advanced Squashing:
-
+ ### 5. Advanced Squashing:
 ```bash
 Let's explore more complex squashing. Can you combine the last two commits ("Create third file" and "Create fourth file") into a single commit named "Create third and fourth files"?
 Challenge: Utilize interactive rebasing with the squash command to achieve this advanced squash. Check step 4
@@ -104,9 +102,6 @@ STEPS:
 Successfully rebased and updated refs/heads/main.]"
 6) Verification  : git log --oneline
 7)git push --force
-
-
-
 
 #WORKING :  
 Uruyanges-iMac:GitAdvanced gymuruyange$ git log --oneline
@@ -135,7 +130,7 @@ Uruyanges-iMac:GitAdvanced gymuruyange$ git log --oneline
 de20020 Initial commit
 ```
 
-## 6. Dropping a Commit:
+### 6. Dropping a Commit:
 ```bash
 We all make mistakes. Imagine needing to completely remove an unwanted commit from your history.
 
@@ -143,7 +138,8 @@ Create a new file named unwanted.txt add some changes and commit it with a messa
 
 Challenge: Use git rebase -i to identify and remove the "Unwanted commit" commit, cleaning up your history. learn more about dropping commits 
 
-// SOLUTION
+
+ SOLUTION:
 Dropping a commmit: when you remove (drop) a commit using git rebase -i, the changes from that commit do not go back to the staging area or your working directory. They’re completely deleted from history, as if the commit never happened.
 
 STEPS:
@@ -189,7 +185,7 @@ de20020 Initial commit
 Uruyanges-iMac:GitAdvanced gymuruyange$ 
 
 ```
-## 7. Reordering Commits:
+### 7. Reordering Commits:
 ``` bash
 Delve deeper into git rebase -i. Can you rearrange commits within your history using this command? learn more about ordering commits
 
@@ -220,7 +216,7 @@ Uruyanges-iMac:GitAdvanced gymuruyange$ git rebase -i HEAD~3
 Successfully rebased and updated refs/heads/main.
 ```
 
-## 8.Cherry-Picking Commits:
+### 8.Cherry-Picking Commits:
 ```bash 
 Create a branch, call it ft/branch, and add a new file named test5.md with some content. Commit these changes with a message like "Implemented test 5".
 Imagine you only desire a specific commit from ft/branch. Research and use git cherry-pick to selectively bring that commit into your current branch which is main.
@@ -231,10 +227,77 @@ learn more about cherry-pick
 git cherry-pick is a powerful Git command that lets you selectively apply a specific commit from one branch into another
 without merging the entire branch.
 
+this  is simple copy that file and the commit message but (it will be a new commit with a different commit hash) to the specific target branch and also remain in original branch also with the commit message.
+
+STEPS:
+1) git checkout -b ft/branch
+2)echo "This is test 5" > test5.md
+3) git add test5.md
+4) git commit -m "Implemented test 5"
+5)git checkout main or <target branch>
+6) git log --oneline ft/branch
+7) git cherry-pick abc1234 or <its hash code>
+8) you can verify by git log --oneline
+
+WORKING:
+Uruyanges-iMac:GitAdvanced gymuruyange$ git checkout -b ft/branch
+Switched to a new branch 'ft/branch'
+Uruyanges-iMac:GitAdvanced gymuruyange$ echo "This is test 5" > test5.md
+Uruyanges-iMac:GitAdvanced gymuruyange$ git add test5.md
+Uruyanges-iMac:GitAdvanced gymuruyange$ git commit -m "Implemented test 5"
+[ft/branch c90d85c] Implemented test 5
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test5.md
+Uruyanges-iMac:GitAdvanced gymuruyange$ git checkout main
+Switched to branch 'main'
+Your branch and 'origin/main' have diverged,
+and have 6 and 4 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+Uruyanges-iMac:GitAdvanced gymuruyange$ git log --oneline ft/branch
+c90d85c (ft/branch) Implemented test 5
+193d133 (HEAD -> main) readme
+9c7dd10 read me
+cd6741b updating the readme
+5dc6e0c readme update
+338bdcb Readme updates
+3ab9c65 Create third and fourth files
+903a7c0 create second file
+33e0109 chore: Create initial file
+de20020 Initial commit
+Uruyanges-iMac:GitAdvanced gymuruyange$ git cherry-pick c90d85c 
+[main 10c61ea] Implemented test 5
+ Date: Fri Feb 28 12:14:18 2025 +0200
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test5.md
+Uruyanges-iMac:GitAdvanced gymuruyange$ git log --oneline
+10c61ea (HEAD -> main) Implemented test 5
+193d133 readme
+9c7dd10 read me
+cd6741b updating the readme
+5dc6e0c readme update
+338bdcb Readme updates
+3ab9c65 Create third and fourth files
+903a7c0 create second file
+33e0109 chore: Create initial file
+de20020 Initial commit
+
+```
+
+### 9. Visualizing Commit History (Bonus):
+```bash
+Tools like git log --graph or a graphical Git client can help visualize your commit history. Explore these tools for a clearer understanding of your workflow.
+
+# SOLUTION:
+Visualizing your commit history can make it much easier to understand your workflow, see the relationships between branches, and track changes over time.
 STEPS:
 
 
-WORKING:
+
+
+WORKING
 
 ```
+
+
+
 
