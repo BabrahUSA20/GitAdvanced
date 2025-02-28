@@ -86,6 +86,17 @@ Steps to Split a Commit Using git reset:
 3)git reset when you do that it wil go under staging stage and then add and commit each 
 then do git log --online the  push 
 
+```
+
+ ## 5. Advanced Squashing:
+
+```bash
+Let's explore more complex squashing. Can you combine the last two commits ("Create third file" and "Create fourth file") into a single commit named "Create third and fourth files"?
+Challenge: Utilize interactive rebasing with the squash command to achieve this advanced squash. Check step 4
+
+# SOLUTION
 
 
 ```
+
+
