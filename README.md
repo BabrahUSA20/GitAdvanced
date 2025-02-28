@@ -390,7 +390,50 @@ Why is git reflog useful?
 STEP:
 1) git reflog: (To see your reflog history)
 
+WORKING: 
+Uruyanges-iMac:GitAdvanced gymuruyange$ git reflow
+git: 'reflow' is not a git command. See 'git --help'.
 
+The most similar command is
+        reflog
+Uruyanges-iMac:GitAdvanced gymuruyange$ git reflog
+6a91b3e (HEAD -> main) HEAD@{0}: pull: Merge made by the 'ort' strategy.
+ac7429e HEAD@{1}: commit: merging
+ab15e4b HEAD@{2}: reset: moving to HEAD@{5}
+8344081 (origin/main, origin/HEAD) HEAD@{3}: reset: moving to HEAD
+8344081 (origin/main, origin/HEAD) HEAD@{4}: rebase (finish): returning to refs/heads/main
+8344081 (origin/main, origin/HEAD) HEAD@{5}: rebase (pick): babrah's file to study reflog with reset
+eeb2508 HEAD@{6}: rebase (pick): updation
+f21bf53 HEAD@{7}: rebase (pick): updation
+ab15e4b HEAD@{8}: rebase (pick): Implemented test 5
+9274122 HEAD@{9}: rebase (pick): readme
+6798bd5 HEAD@{10}: rebase (pick): read me
+0dc1ee9 HEAD@{11}: rebase (pick): updating the readme
+9586864 HEAD@{12}: rebase (start): checkout origin/main
+d3889c6 HEAD@{13}: reset: moving to HEAD
+d3889c6 HEAD@{14}: checkout: moving from d3889c626d35f0a42c99cc51ee87bb436386cf11 to main
+Uruyanges-iMac:GitAdvanced gymuruyange$ git reset --hard HEAD@{3}
+HEAD is now at 8344081 babrah's file to study reflog with reset
+Uruyanges-iMac:GitAdvanced gymuruyange$ git reset --hard HEAD@{0}
+HEAD is now at 8344081 babrah's file to study reflog with reset
+Uruyanges-iMac:GitAdvanced gymuruyange$ git reflog
+8344081 (HEAD -> main, origin/main, origin/HEAD) HEAD@{0}: reset: moving to HEAD@{0}
+8344081 (HEAD -> main, origin/main, origin/HEAD) HEAD@{1}: reset: moving to HEAD@{3}
+6a91b3e HEAD@{2}: pull: Merge made by the 'ort' strategy.
+ac7429e HEAD@{3}: commit: merging
+ab15e4b HEAD@{4}: reset: moving to HEAD@{5}
+8344081 (HEAD -> main, origin/main, origin/HEAD) HEAD@{5}: reset: moving to HEAD
+8344081 (HEAD -> main, origin/main, origin/HEAD) HEAD@{6}: rebase (finish): returning to refs/heads/main
+8344081 (HEAD -> main, origin/main, origin/HEAD) HEAD@{7}: rebase (pick): babrah's file to study reflog with reset
+eeb2508 HEAD@{8}: rebase (pick): updation
+f21bf53 HEAD@{9}: rebase (pick): updation
+ab15e4b HEAD@{10}: rebase (pick): Implemented test 5
+9274122 HEAD@{11}: rebase (pick): readme
+6798bd5 HEAD@{12}: rebase (pick): read me
+0dc1ee9 HEAD@{13}: rebase (pick): updating the readme
+9586864 HEAD@{14}: rebase (start): checkout origin/main
+d3889c6 HEAD@{15}: reset: moving to HEAD
+d3889c6 HEAD@{16}: checkout: moving from d3889c626d35f0a42c99cc51ee87bb436386cf11 to main
 
 
 
