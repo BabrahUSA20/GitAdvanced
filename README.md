@@ -196,10 +196,45 @@ Delve deeper into git rebase -i. Can you rearrange commits within your history u
 
 # SOLUTION:
 STEPS:
+1) git log or git log --oneline
+2)git rebase -i HEAD~3
+3) put the curse where you want to reorder press "dd" to cut and move on that spot and press "p" to paste
+4):wq
+if successful you will see "Successfully rebased and updated refs/heads/main."
 
 
+WORKING:
+Uruyanges-iMac:GitAdvanced gymuruyange$ git log --oneline
+5969311 (HEAD -> main) read me
+5dc6e0c readme update
+338bdcb Readme updates
+3ab9c65 Create third and fourth files
+903a7c0 create second file
+33e0109 chore: Create initial file
+de20020 Initial commit
+Uruyanges-iMac:GitAdvanced gymuruyange$ git rebase -i HEAD~6
+Uruyanges-iMac:GitAdvanced gymuruyange$ git status
+Author: Babrah <usanasebabrah35@gmail.com>
+Uruyanges-iMac:GitAdvanced gymuruyange$ git rebase -i HEAD~3
+[For here i putted the curse where i want to cut and pressed "dd" and : pressed "p" where i want to past]
+Successfully rebased and updated refs/heads/main.
+```
+
+## 8.Cherry-Picking Commits:
+```bash 
+Create a branch, call it ft/branch, and add a new file named test5.md with some content. Commit these changes with a message like "Implemented test 5".
+Imagine you only desire a specific commit from ft/branch. Research and use git cherry-pick to selectively bring that commit into your current branch which is main.
+learn more about cherry-pick
+
+
+# SOLUTION:
+git cherry-pick is a powerful Git command that lets you selectively apply a specific commit from one branch into another
+without merging the entire branch.
+
+STEPS:
 
 
 WORKING:
 
 ```
+
