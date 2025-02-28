@@ -95,8 +95,44 @@ Let's explore more complex squashing. Can you combine the last two commits ("Cre
 Challenge: Utilize interactive rebasing with the squash command to achieve this advanced squash. Check step 4
 
 # SOLUTION
+STEPS:
+1)git log --oneline
+2)git rebase -i HEAD~5 (JUST THE LIMIT NUMBER OF LINES YOU NEED TO EDIT)
+3)I replaced the fourth one where is pick to squach and i save and quit  (only that no additional edit)
+4)It  will immitiately prompt me a editing page and delete the message i needed and write my one commit message wanted and :wq
+5) if successful I saw "[detached HEAD abc5678] Create third and fourth files
+Successfully rebased and updated refs/heads/main.]"
+6) Verification  : git log --oneline
+7)git push --force
 
 
+
+
+#WORKING :  
+Uruyanges-iMac:GitAdvanced gymuruyange$ git log --oneline
+9586864 (HEAD -> main, origin/main, origin/HEAD) readme update
+789ef4e Readme updates
+97dab47 create forth file
+a98524e create third file
+903a7c0 create second file
+33e0109 chore: Create initial file
+de20020 Initial commit
+Uruyanges-iMac:GitAdvanced gymuruyange$ git rebase -i HEAD~5
+Successfully rebased and updated refs/heads/main.
+Uruyanges-iMac:GitAdvanced gymuruyange$ git rebase -i HEAD~5
+[detached HEAD 3ab9c65] Create third and fourth files
+ Date: Wed Feb 26 13:45:18 2025 +0200
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test3.md
+ create mode 100644 test4.md
+Successfully rebased and updated refs/heads/main.
+Uruyanges-iMac:GitAdvanced gymuruyange$ git log --oneline
+5dc6e0c (HEAD -> main) readme update
+338bdcb Readme updates
+3ab9c65 Create third and fourth files
+903a7c0 create second file
+33e0109 chore: Create initial file
+de20020 Initial commit
 ```
 
 ## 6. Dropping a Commit:
