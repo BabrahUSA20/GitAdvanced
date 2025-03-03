@@ -838,7 +838,29 @@ STEPS:
 3)Rename the branch: git branch -m <new-branch-name>
 
 WORKING:
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git branch
+  draft
+  ft/new-branch-from-commit
+* main
 
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git switch ft/new-branch-from-commit
+Switched to branch 'ft/new-branch-from-commit'
+Your branch is up to date with 'origin/ft/new-branch-from-commit'.
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (ft/new-branch-from-commit)
+$ git branch -m ft/improved-branch-name
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (ft/improved-branch-name)
+$ git push origin ft/improved-branch-name
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: Create a pull request for 'ft/improved-branch-name' on GitHub by visiting:
+remote:      https://github.com/BabrahUSA20/GitAdvanced/pull/new/ft/improved-branch-name
+remote:
+To https://github.com/BabrahUSA20/GitAdvanced.git
+ * [new branch]   
 
 ```
 
