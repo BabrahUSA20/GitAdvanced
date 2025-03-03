@@ -773,21 +773,3 @@ Already up to date.
 rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
 $ 
 ```
-### 8.Branch Rebasing:
-```bash
-Rebasing is another method to integrate changes from a feature branch. It rewrites your branch history by incorporating its commits on top of the latest commit in the target branch (main in our case).
-Challenge: Try rebasing the ft/new-branch-from-commit branch onto the main branch. Remember, rebasing rewrites history, so use it with caution, especially in shared repositories. learn more about rebasing here
-
-```
-### 9. Renaming Branches:
-```bash
-Branch names can sometimes evolve. Let's rename ft/new-branch-from-commit to a more descriptive name.
-Challenge: Use git branch -m ft/new-branch-from-commit ft/improved-branch-name to rename your branch.
-
-```
-
-### 10.Checking Out Detached HEAD:
-```bash
-In specific situations, you might need to detach HEAD from your current branch. Research git checkout <commit-hash> (replace with the desired commit hash) to understand this concept.
-
-```
