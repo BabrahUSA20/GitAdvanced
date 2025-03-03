@@ -1141,6 +1141,194 @@ $ git switch draft
 Explore using a merge tool like git mergetool to help you visualize and resolve merge conflicts more efficiently.
 
 #SOLUTION:
+You can also set VS Code to be your default merge tool in Git, so it opens automatically when you use git mergetool.
+1)Set VS Code as the default merge tool: git config --global merge.tool vscode
+2)Configure VS Code's merge tool options: git config --global mergetool.vscode.cmd "code --wait $MERGED"
+3)Run git mergetool:
+When you have a conflict and want to use VS Code’s merge tool, just run:
 
+->git mergetool
+
+WORKING:
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git config --global merge.tool vscode
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ 
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git config --global mergetool.vscode.cmd "code --wait $MERGED"
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git switch draft 
+Switched to branch 'draft'
+Your branch and 'origin/main' have diverged,
+and have 3 and 4 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (draft)
+$ git mergetool
+No files need merging
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (draft)
+$ git switch main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$
+
+```
+### 5.Understanding Detached HEAD State:
+```bash
+Detached HEAD refers to a state where your working directory is not associated with any specific branch. Research the implications and how to recover from this state using commands like git checkout <branch-name>.
+
+What is Detached HEAD?
+Normally, Git’s HEAD points to the latest commit on your current branch (e.g., main, develop, or any feature branch). When you checkout a branch, HEAD is pointing to that branch.
+
+
+# SOLUTION:
+However, when you checkout a specific commit (not a branch), Git detaches HEAD. This means HEAD no longer points to a branch, but instead to a specific commit. You’re still working with the same files and changes, but they’re not tied to any branch until you decide to create one.
+
+
+Why does it happen?
+It happens when you checkout a commit hash instead of a branch:
+-->git checkout <commit-hash>
+
+For example: git checkout e4f5g6d
+
+Now, Git is in a detached HEAD state because HEAD is pointing directly to that commit, not a branch.
+
+Implications of Detached HEAD:
+==============================
+
+1) You’re not on a branch: Changes you make won’t be associated with any branch unless you explicitly create a new branch from this state.
+
+2)Any commits are "lost": If you make new commits while in a detached HEAD state and switch branches later, those commits could be lost. You can still access them if you remember the commit hash, but they aren’t tied to any branch.
+
+3) Perfect for temporary exploration:Detached HEAD is useful when you want to explore previous commits, test something, or build off a specific commit without affecting your current branches.
+
+Recovering from Detached HEAD State:
+1. Switching back to an existing branch:
+N-->git checkout main
+
+2. Create a new branch from the detached HEAD:
+If you want to keep the changes you made in the detached HEAD state, you can create a new branch from where HEAD is pointing:
+-->git checkout -b new-branch-name
+
+
+3. Discard changes in detached HEAD:
+If you decide you no longer need any changes from the detached HEAD state, you can discard them:
+-->git reset --hard
+
+This will revert any uncommitted changes in the working directory, and you can switch back to your branch:
+-->git checkout main
+
+Key Commands:
+
+Check current status:
+-->git status
+This will show if you're in a detached HEAD state.
+
+Switch to a branch:
+-->git switch <branch-name>
+
+Create a new branch from detached HEAD:
+-->git checkout -b <new-branch-name>
+
+Return to the previous branch:
+-->git checkout -
+
+```
+
+
+### 6.Ignoring Files/Directories:
+```bash
+You might have files or directories you don't want to track in Git. Create a .gitignore file to specify these exclusions.
+Challenge: Add a pattern like /tmp to your .gitignore file to exclude all temporary files and directories from version control. more about ignoring files here
+
+
+# SOLUTION:
+gitignore is a simple text file that lists patterns for files and directories to ignore in Git.
+
+STEPS:
+1. Create a .gitignore File
+To start, you can create a .gitignore file in the root of your Git repository.
+-->touch .gitignore :(Alternatively, you can manually create the file using a text editor, like VS Code.)
+
+2. Edit the .gitignore File
+The .gitignore file is where you specify which files or directories Git should ignore. You can list specific files, file types, or entire directories. Each pattern you add to this file tells Git to exclude those files from tracking.
+
+Here are some examples of what you might put in the .gitignore file:
+
+Ignore specific files:
+secrets.txt
+This will ignore the file secrets.txt.
+
+Ignore all files of a certain type:
+-->*.log
+This will ignore all files ending with .log.
+
+
+Ignore a specific directory:
+node_modules/
+This will ignore the node_modules directory and its contents.
+
+Ignore all files and directories except one specific file:
+
+*
+!important-file.txt
+[This will ignore everything in the repository except for important-file.txt.]
+
+Ignore files by pattern:
+-->*.bak
+This will ignore any file ending with .bak.
+
+Ignore files in a specific directory:
+-->build/*
+This will ignore everything in the build directory.
+
+Ignore OS and IDE specific files:
+It’s common to ignore files generated by your operating system or IDE. Here’s an example for macOS and Visual Studio Code:
+
+.DS_Store
+.vscode/
+
+3. Apply .gitignore to Already Tracked Files
+If you have already tracked files that are now in .gitignore, Git will continue to track them unless you remove them from the repository. To stop tracking files that are already being tracked, you’ll need to run:
+
+git rm --cached <file>
+
+For example:
+git rm --cached secrets.txt
+This will remove the file from Git’s tracking, but not delete it from your working directory. It will be ignored moving forward.
+
+4. Check Status
+After updating your .gitignore, run:
+
+bash
+Copy
+Edit
+git status
+This will show you any files that are still being tracked or ignored, and you can verify that the right files are excluded.
+
+5. Commit the .gitignore File
+Once you've configured .gitignore, make sure to commit it to your repository so others working on the project will have the same ignore rules:
+
+git add .gitignore
+git commit -m "Add .gitignore to exclude unwanted files"
+git push
+
+
+WORKING:
+
+
+```
+
+### 7.Working with Tags:
+```bash
+Tags act like bookmarks in your Git history. Create a tag to mark a specific point in your development.
+Challenge: Use git tag v1.0 to create a tag named v1.0 on the current commit in your main branch. git tags
 
 ```
