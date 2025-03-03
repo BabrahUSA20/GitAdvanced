@@ -887,3 +887,167 @@ TO DELETE THE DETACHED HEAD:
  (Optional) Discard changes:
 4) git reset --hard 
 ```
+
+# Challenges:  Part 3: Advanced Workflows (10+ Challenges)
+### 1.Stashing Changes:
+```bash
+Imagine you're working on some changes in the main branch but need to attend to something urgent. You don't want to lose your uncommitted work.
+Challenge: Stash your current changes in the main branch using git stash.
+
+#SOLUTION:
+STASHING : Stashing is perfect for exactly this kind of situation — when you need to put your current work aside without committing it! 
+
+When you stash your changes, Git temporarily saves them away on a stack. You can then come back to your work when you're ready. by : git stash pop to remove from the stack and apply the changes. 
+
+STEPS:
+1) git status (you will see something like this: Changes not staged for commit
+2) git stash it will hold the commit of the last that commmit but also you can
+stash with your commit message.:
+-->git stash push -m "WIP: Working on new feature"
+3) git stash list : (if you want to see the stash list)
+4)when you want to get back to your work you do :
+-->git stash apply
+-->git stash pop
+
+NB: 
+ Drop a stash without applying: git stash drop stash@{0}
+If you want to clear everything in the stash: git stash clear
+
+
+WORKING: 
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git stash
+Saved working directory and index state WIP on main: 06f1d6d part 2 readme Update
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git stash push -m "WIP: Working on new feature"
+No local changes to save
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git stash list
+stash@{0}: WIP on main: 06f1d6d part 2 readme Update
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git stash apply
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git stash pop
+error: Your local changes to the following files would be overwritten by merge:
+        README.md
+Please commit your changes or stash them before you merge.
+Aborting
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+The stash entry is kept in case you need it again.
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ $ git stash push -m "WIP: Working on new feature"
+bash: $: command not found
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git stash push -m "WIP: Working on new feature"
+Saved working directory and index state On main: WIP: Working on new feature
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git stash pop
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (f3a00290f98efa38b341ac55a69c06dfd85d9437)
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+
+```
+
+### 3.Retrieving Stashed Changes:
+```bash
+Later, when you're ready to resume working on those stashed changes, you can retrieve them.
+Challenge: Apply the most recent stash back onto the main branch using git stash pop.
+
+#SOLUTION:
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git stash pop
+error: Your local changes to the following files would be overwritten by merge:
+        README.md
+Please commit your changes or stash them before you merge.
+Aborting
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+The stash entry is kept in case you need it again.
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ $ git stash push -m "WIP: Working on new feature"
+bash: $: command not found
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git stash push -m "WIP: Working on new feature"
+Saved working directory and index state On main: WIP: Working on new feature
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git stash pop
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (f3a00290f98efa38b341ac55a69c06dfd85d9437)
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$
+
+```
+### 3.Branch Merging Conflicts (Continued):
+```bash
+Merge conflicts can arise when the same lines of code are modified in both branches being merged.
+Challenge: Simulate a merge conflict scenario (you can create conflicting changes in a file on both main and a new feature branch). Then, try merging again and resolve the conflicts manually using your text editor.
+
+SOLUTION:
+
+
+```
