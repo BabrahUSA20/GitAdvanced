@@ -471,5 +471,76 @@ Uruyanges-iMac:GitAdvanced gymuruyange$ git branch
 Commit these changes with a descriptive message like "Implemented core functionality for new feature".
 
 #SOLUTION:
+STEPS: 
+1) touch feature.txt (also add the content dynamic)
+2)git status
+3)git add feature.txt
+4)git commit -m "Implemented core functionality for new feature"
+
+WORKING:
+Uruyanges-iMac:GitAdvanced gymuruyange$ git checkout -b ft/new-feature
+Switched to a new branch 'ft/new-feature'
+Uruyanges-iMac:GitAdvanced gymuruyange$ echo "This is feature contet" > feature.txt
+Uruyanges-iMac:GitAdvanced gymuruyange$ git status
+On branch ft/new-feature
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        feature.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+Uruyanges-iMac:GitAdvanced gymuruyange$ git add feature.txt
+Uruyanges-iMac:GitAdvanced gymuruyange$ git commit -m "Implemented core functionality for new feature"
+[ft/new-feature 337fc4d] Implemented core functionality for new feature
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+
+ ```
+ ### 3. Switching Back and Making More Changes:
+ ```bash
+ It's common to switch between branches during development.
+Challenge: Switch back to the main branch (previously master) and create a new file named readme.txt with some introductory content.
+ Commit these changes with a message like "Updated project readme".
+
+ # SOLUTION:
+ STEPS:
+1) git checkout main
+2) echo "This is readme content" > readme.txt
+3) git status
+4) git add readme.txt
+5) git commit -m "Updated project readme"
+
+ WORKING:
+ Uruyanges-iMac:GitAdvanced gymuruyange$ git switch main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+Uruyanges-iMac:GitAdvanced gymuruyange$ echo "This is readme content" > readme.txt
+Uruyanges-iMac:GitAdvanced gymuruyange$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        readme.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+Uruyanges-iMac:GitAdvanced gymuruyange$ git add  readme.txt
+Uruyanges-iMac:GitAdvanced gymuruyange$ git commit -m "Updated project readme"
+[main b3a343d] Updated project readme
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.txt
+Uruyanges-iMac:GitAdvanced gymuruyange$ 
+ ```
+
+ ### 4. Local vs. Remote Branches:
+ ```bash
+So far, we've been working with local branches that exist on your machine. Research the concept of remote branches, which are copies of your local branches stored on a Git hosting platform like GitHub. 
+Learn how to push your local branches to remote repositories and pull changes from them to keep your local and remote repositories in sync.
+
+
+# SOOLUTION 
+STEPS:
+WORKING:
 
  ```
