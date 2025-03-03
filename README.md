@@ -886,7 +886,7 @@ TO DELETE THE DETACHED HEAD:
 
  (Optional) Discard changes:
 4) git reset --hard 
-```
+
 
 # Challenges:  Part 3: Advanced Workflows (10+ Challenges)
 ### 1.Stashing Changes:
@@ -1048,6 +1048,99 @@ Merge conflicts can arise when the same lines of code are modified in both branc
 Challenge: Simulate a merge conflict scenario (you can create conflicting changes in a file on both main and a new feature branch). Then, try merging again and resolve the conflicts manually using your text editor.
 
 SOLUTION:
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git branch
+  draft
+  ft/improved-branch-name
+* main
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git switch draft
+Switched to branch 'draft'
+Your branch and 'origin/main' have diverged,
+and have 1 and 4 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (draft)
+$ gut pull 
+bash: gut: command not found
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (draft)
+$ git pull
+Auto-merging draft.md
+CONFLICT (add/add): Merge conflict in draft.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (draft|MERGING)
+$ git status
+On branch draft
+Your branch and 'origin/main' have diverged,
+and have 1 and 4 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Changes to be committed:
+        modified:   README.md
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both added:      draft.md
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (draft|MERGING)
+$ git merge
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (draft|MERGING)
+$ git add .
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (draft|MERGING)
+$ git commit "merging in both files"
+fatal: cannot do a partial commit during a merge.
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (draft|MERGING)
+$ git status
+On branch draft
+Your branch and 'origin/main' have diverged,
+and have 1 and 4 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
+
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        modified:   README.md
+        modified:   draft.md
+
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (draft|MERGING)
+$ git switch draft
+
+```
+### 4. Resolving Merge Conflicts with a Merge Tool:
+```bash
+Explore using a merge tool like git mergetool to help you visualize and resolve merge conflicts more efficiently.
+
+#SOLUTION:
 
 
 ```
