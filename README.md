@@ -590,4 +590,93 @@ After merging or completing work on a feature branch, it's good practice to remo
 #SOLUTION
 You can delete a local branch using:
 --> git branch -d <branch-name>
+
+    WORKING:
+    rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git checkout -b ft/new-feature
+Switched to a new branch 'ft/new-feature'
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (ft/new-feature)
+$ echo "This is feature contet" > feature.txt
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (ft/new-feature)
+$ git add .
+warning: in the working copy of 'feature.txt', LF will be replaced by CRLF the next time Git touches it
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (ft/new-feature)
+$ git  git commit -m "Implemented core functionality for new feature"
+git: 'git' is not a git command. See 'git --help'.
+
+The most similar command is
+        init
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (ft/new-feature)
+$  git commit -m "Implemented core functionality for new feature"
+[ft/new-feature 8effe58] Implemented core functionality for new feature
+ 2 files changed, 52 insertions(+), 4 deletions(-)
+ create mode 100644 feature.txt
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (ft/new-feature)
+$ git switch main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git log --oneline ft/new-feature
+8effe58 (ft/new-feature) Implemented core functionality for new feature
+803e0f8 (HEAD -> main) Merge branch 'main' of https://github.com/BabrahUSA20/GitAdvanced
+65e7f17 staging
+cde43f7 (origin/main, origin/HEAD) pushng readme on git
+b3a343d Updated project readme
+0772d4f updating the readme
+2145b61 read me
+452efd0 hi
+2f70beb read to update it
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git cherry-pick 8effe58
+[main 6a7fa8b] Implemented core functionality for new feature
+ Date: Mon Mar 3 11:26:01 2025 +0200
+ 2 files changed, 52 insertions(+), 4 deletions(-)
+ create mode 100644 feature.txt
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git log --oneline 
+6a7fa8b (HEAD -> main) Implemented core functionality for new feature
+803e0f8 Merge branch 'main' of https://github.com/BabrahUSA20/GitAdvanced
+65e7f17 staging
+cde43f7 (origin/main, origin/HEAD) pushng readme on git
+b3a343d Updated project readme
+0772d4f updating the readme
+2145b61 read me
+452efd0 hi
+2f70beb read to update it
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git branch -d ft/new-feature
+error: the branch 'ft/new-feature' is not fully merged
+hint: If you are sure you want to delete it, run 'git branch -D ft/new-feature'
+hint: Disable this message with "git config advice.forceDeleteBranch false"
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git branch -D ft/new-feature
+Deleted branch ft/new-feature (was 8effe58).
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git log --oneline
+6a7fa8b (HEAD -> main) Implemented core functionality for new feature
+803e0f8 Merge branch 'main' of https://github.com/BabrahUSA20/GitAdvanced
+65e7f17 staging
+cde43f7 (origin/main, origin/HEAD) pushng readme on git
+b3a343d Updated project readme
+0772d4f updating the readme
+2145b61 read me
+452efd0 hi
+2f70beb read to update it
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git branch
+* main
+
 ```
