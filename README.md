@@ -437,3 +437,39 @@ d3889c6 HEAD@{16}: checkout: moving from d3889c626d35f0a42c99cc51ee87bb436386cf1
 
 ```
 
+# Challenges:  Part 2: Branching Basics (10 Challenges)
+### Feature Branch Creation:
+```bash
+Imagine working on a new feature named ft/new-feature. Let's establish a dedicated branch for it.
+Challenge: Create a new branch named ft/new-feature and switch to that branch.
+
+ # Solution:
+STEPS:
+They are different ways of doing that
+
+WAY 1:
+1) git checkout -b "branch-name" (THIS CREATE AND SIMPLE SWITCH TO THAT NEW BRANCH)
+
+WORKING:
+Uruyanges-iMac:GitAdvanced gymuruyange$ git checkout -b ft/new-feature
+Switched to a new branch 'ft/new-feature'
+Uruyanges-iMac:GitAdvanced gymuruyange$
+
+WAY 2:
+1) git branch  -M "branch-name" (THIS CREATE AND SIMPLE SWITCH TO THAT NEW BRANCH)
+WORKING:
+Uruyanges-iMac:GitAdvanced gymuruyange$ git branch -M babrah
+Uruyanges-iMac:GitAdvanced gymuruyange$ git branch
+* babrah
+  ft/branch
+  main
+```
+
+ ### 2.Working on the Feature Branch:
+ ```bash
+ Create a new file named feature.txt in this branch and add some content to it.
+Commit these changes with a descriptive message like "Implemented core functionality for new feature".
+
+#SOLUTION:
+
+ ```
