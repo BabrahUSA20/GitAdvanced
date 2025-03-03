@@ -88,6 +88,7 @@ then do git log --online the  push
 
 
 
+<<<<<<< HEAD
 ```
 
 ## Advanced Squashing:
@@ -103,4 +104,7 @@ Challenge: Utilize interactive rebasing with the squash command to achieve this 
 
 
 
+
+=======
+```
 
