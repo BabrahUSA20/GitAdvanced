@@ -680,3 +680,58 @@ $ git branch
 * main
 
 ```
+### 6.Creating a Branch from a Commit:
+
+```bash
+You can also create a branch from a specific commit in your history.
+Challenge: Use git checkout -b ft/new-branch-from-commit commit-hash (adjust the commit hash as needed) to create a new branch named ft/new-branch-from-commit starting from the commit two positions back in your history. learn more here
+
+SOOLUTION:
+STEPS:
+1)git log --oneline to get the commit hashes of your previous commits
+2) git checkout -b ft/new-branch-from-commit(new branch-name ) 803e0f8 (commit-hash you gate the one after the first 2 positions back).
+
+WORKING:
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git log --oneline
+7a7d225 (HEAD -> main) staging the readme
+6a7fa8b Implemented core functionality for new feature
+803e0f8 Merge branch 'main' of https://github.com/BabrahUSA20/GitAdvanced
+65e7f17 staging
+cde43f7 (origin/main, origin/HEAD) pushng readme on git
+b3a343d Updated project readme
+0772d4f updating the readme
+2145b61 read me
+452efd0 hi
+2f70beb read to update it
+e20f6ec hello
+3e04410 merging
+eeb2508 updation
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git checkout -b ft/new-branch-from-commit 803e0f8
+Switched to a new branch 'ft/new-branch-from-commit'
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (ft/new-branch-from-commit)
+$ git branch 
+* ft/new-branch-from-commit
+  main
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (ft/new-branch-from-commit)
+$ git switch main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 5 commits.
+  (use "git push" to publish your local commits)
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$
+
+```
+### 7.Branch Merging:
+```bash
+Now that you've completed work on your feature branch, it's time to integrate it into main.
+Challenge: Merge the ft/new-branch-from-commit branch into the main branch. Address any merge conflicts that might arise
+
+# SOLUTION:
+
+```
