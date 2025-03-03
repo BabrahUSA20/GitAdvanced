@@ -868,4 +868,22 @@ To https://github.com/BabrahUSA20/GitAdvanced.git
 ```bash
 In specific situations, you might need to detach HEAD from your current branch. Research git checkout <commit-hash> (replace with the desired commit hash) to understand this concept.
 
+# SOLUTION:
+STEPS:
+1)git log --oneline
+2) git checkout <commit hash> eg git checkout e4f5g6
+3)Explore or make changes:You can look at files, test code, or even make changes — just know these changes won’t belong to any branch unless you save them.
+4)Saving changes while in detached HEAD: if you made the change and want to commit them :
+-->git checkout -b new-branch-from-detached
+5) then get  back to your main branch: git checkout main
+
+
+TO DELETE THE DETACHED HEAD: 
+["you  can simple move to that main and write git reset --hard"]
+1)git status (you will see something like this: HEAD is now at e4f5g6) 
+2) leave the detached HEAD: git checkout main
+3) you can save the change before leaving by : if you have made the change and you want to save them : git checkout -b new-branch-name
+
+ (Optional) Discard changes:
+4) git reset --hard 
 ```
