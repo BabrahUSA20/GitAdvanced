@@ -778,11 +778,67 @@ $
 Rebasing is another method to integrate changes from a feature branch. It rewrites your branch history by incorporating its commits on top of the latest commit in the target branch (main in our case).
 Challenge: Try rebasing the ft/new-branch-from-commit branch onto the main branch. Remember, rebasing rewrites history, so use it with caution, especially in shared repositories. learn more about rebasing here
 
+#SOLUTION:
+STEPS :
+1) git checkout ft/new-branch-from-commit (any branch you want to rebase)
+2) git rebase main (this simply copy the things in main into that active branch you are in)
+3)Handle any merge conflicts (if needed): git will show you the conflict markers like this:
+
+<<<<<<< HEAD
+Changes from the main branch
+=======
+Changes from the feature branch
+>>>>>>> ft/new-branch-from-commit
+
+4)Manually edit the file, keeping the changes you want. After resolving conflicts, stage the changes:
+5) Finish the rebase:
+Once all conflicts (if any) are resolved, Git will complete the rebase and move your feature branch commits on top of main
+6)git rebase --continue
+7)git push origin ft/new-branch-from-commit --force if you want to force push the changes to the remote branch
+
+WORKING: 
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git checkout ft/new-branch-from-commit
+Switched to branch 'ft/new-branch-from-commit'
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (ft/new-branch-from-commit)
+$ git rebase main
+Successfully rebased and updated refs/heads/ft/new-branch-from-commit.
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (ft/new-branch-from-commit)
+$ git push origin -u ft/new-branch-from-commit
+Enumerating objects: 29, done.
+Counting objects: 100% (29/29), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (22/22), done.
+Writing objects: 100% (23/23), 10.60 KiB | 775.00 KiB/s, done.
+Total 23 (delta 14), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (14/14), completed with 2 local objects.
+remote:
+remote: Create a pull request for 'ft/new-branch-from-commit' on GitHub by visiting:
+remote:      https://github.com/BabrahUSA20/GitAdvanced/pull/new/ft/new-branch-from-commit
+remote:
+To https://github.com/BabrahUSA20/GitAdvanced.git
+ * [new branch]      ft/new-branch-from-commit -> ft/new-branch-from-commit
+branch 'ft/new-branch-from-commit' set up to track 'origin/ft/new-branch-from-commit'.
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (ft/new-branch-from-commit)
+$
+
 ```
 ### 9. Renaming Branches:
 ```bash
 Branch names can sometimes evolve. Let's rename ft/new-branch-from-commit to a more descriptive name.
 Challenge: Use git branch -m ft/new-branch-from-commit ft/improved-branch-name to rename your branch.
+
+# SOLUTION:
+STEPS:
+1) Make you are in the branch you want to rename
+2) git switch <branch-name you want to rename>
+3)Rename the branch: git branch -m <new-branch-name>
+
+WORKING:
+
 
 ```
 
