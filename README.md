@@ -1390,4 +1390,6 @@ rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
 Tags act like bookmarks in your Git history. Create a tag to mark a specific point in your development.
 Challenge: Use git tag v1.0 to create a tag named v1.0 on the current commit in your main branch. git tags
 
+
+# SOLUTION:
 ```
