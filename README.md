@@ -1575,6 +1575,7 @@ Collaboration often involves pulling changes from the remote repository made by 
 Challenge: Navigate to Github and make some changes inside your README file that you created on your main branch and in your local environment use git pull origin <branch-name> (replace <branch-name> with the actual branch you want to pull) to fetch changes from the remote repository's main branch and merge them into your local main branch. Address any merge conflicts that might arise.
 
 # SOLUTION:
+cat README.md : it is used to give all the details of your file in the terminal.
 STEPS:
 1) I am adding this content dynamically
 2) am mackinng the change that i will be commiting directlt to the main branch
