@@ -1581,6 +1581,23 @@ STEPS:
 2) am mackinng the change that i will be commiting directlt to the main branch
 
 WORKING:
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git pull origin main
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 999 bytes | 55.00 KiB/s, done.
+From https://github.com/BabrahUSA20/GitAdvanced
+ * branch            main       -> FETCH_HEAD
+   c3e8878..212ccbd  main       -> origin/main
+Updating c3e8878..212ccbd
+Fast-forward
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$
 
 ```
 
