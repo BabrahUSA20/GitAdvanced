@@ -1392,4 +1392,139 @@ Challenge: Use git tag v1.0 to create a tag named v1.0 on the current commit in 
 
 
 # SOLUTION:
+["ags make a point as a specific point in Git history. Tags are used to mark a commit stage as relevant. We can tag a commit for future reference. Primarily, it is used to mark a project's initial point like v1.1."]
+
+
+A tag in Git is like a bookmark or a snapshot of a specific commit — usually used to mark important points in your project’s history, like releases (v1.0, v2.1).
+
+Why use tags?
+
+Mark versions: Tagging stable releases like v1.0, v2.0-beta.
+Easier navigation: Quickly return to a specific point in the project’s history.
+Deployment references: Use tags to deploy specific versions of your code.
+
+STEPS:
+1)first check out the branch you want your tag tobe: git checkout main
+2)create a new tag: git tag v1.0 or "git tag -a v1.0 -m "Version 1.0 release" (with a commit message).
+3) verify the tag: git show v1.0 (to see the details of the tag)"
+4) push the tag to the remote repository: git push origin v1.0 (it is always pushed separately to avoid accidentally pushing a tag to the wrong branch).
+5)
+
+
+Git List Tag
+We can list the available tags in our repository. There are three options that are available to list the tags in the repository. They are as follows:
+
+git tag:
+["It is the most generally used option to list all the available tags from the repository. It is used as:"]
+
+git show :
+["It's a specific command used to display the details of a particular tag
+syntax: git show <tagname>"]
+
+git tag -l ".*":
+["It is also a specific command-line tool. It displays the available tags using wild card pattern. Suppose we have ten tags as v1.0, v1.1, v1.2 up to v1.10. Then, we can list all v pattern using tag pattern v. it is used as:"]
+
+["syntax:$ git tag -l "<pattern>.*"  like :$ git tag -l "pro*"  "] it will list all tags starting with 'pro'".
+
+
+
+
+WORKING:
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git tag v1.0
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git tag
+v1.0
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git tag -a v1.0 -m "Version 1.0 release"
+fatal: tag 'v1.0' already exists
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git tag -d v1.0
+Deleted tag 'v1.0' (was d3939af)
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git tag -a v1.0 -m "am creating Version 1.0 release which is a tag"
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git tag
+v1.0
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git show v1.0
+tag v1.0
+Tagger: Your Name <you@example.com>
+Date:   Tue Mar 4 12:32:56 2025 +0200
+
+am creating Version 1.0 release which is a tag
+
+commit d3939af9d7d1bbb38d7e8cfae6456bb60cac8e0d (HEAD -> main, tag: v1.0)
+Author: Your Name <you@example.com>
+Date:   Tue Mar 4 12:25:26 2025 +0200
+
+    readme update
+
+diff --git a/README.md b/README.md
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git push origin v1.0
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 453 bytes | 151.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/BabrahUSA20/GitAdvanced.git
+ * [new tag]         v1.0 -> v1.0
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$
 ```
+
+### 8.Listing and Deleting Tags:
+```bash
+Challenge: Use git tag to list all existing tags. Then, use git tag -d <tag-name> to delete a specific tag (replace <tag-name> with the actual tag you want to remove).
+
+# SOLUTION:
+TO DELETE TAGS:
+1) git tag -d <tagname> (to delete a local tag)
+2) DELETE A TAG FROM REMOTE REPO: git push origin :refs/tags/<tagname> (to delete a remote tag)
+EG:git push origin --delete v1.0
+
+WORKING:
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git tag v1.0
+
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git tag
+v1.0
+rurmi@Babrah MINGW64 ~/Documents/CLONING WEBSITES/GitAdvanced (main)
+$ git tag -d v1.0
+Deleted tag 'v1.0' (was d3939af)
+```
+
+### 9.Pushing Local Work to Remote Repositories:
+```bash
+Once you're happy with your local changes and branches, it's time to share them with others.
+Challenge: Assuming you've set up a remote repository on a Git hosting platform (like GitHub), push the changes with the actual branch you want to push to push your local branch to the remote repository.
+
+# SOLUTION:
+STEPS:
+1)check the branch you want to push: git branch or git checkout feature-branch
+2)git status
+3)git add .
+4)git commit -m "Your commit message"
+5)git push origin <branch-name> or 
+if it is your first time pushing to the remote repository: git push -u origin <branch-name> or git push --set-upstream origin feature-branch
+
+6) after that you can simply  use : git push
+
+
+WORKING:
+
+
+ ```
